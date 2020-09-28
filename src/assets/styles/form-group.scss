@@ -1,0 +1,87 @@
+$inputBorderColor: #c3c3c3;
+$invalidColor: #c13434;
+$darkColor: #000;
+$contrastColor: #9167df;
+$darkContrastColor: #8122c0;
+
+.form-group {
+    margin-bottom: 50px;
+    border-radius: 50px;
+    background: white;
+    padding: 30px;
+    h2 {
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center
+    }
+    .form-item {
+        margin-bottom: 10px;
+        label {
+            display: block;
+            &.invalid {
+                color: $invalidColor
+            }
+        }
+        .required-star{
+            float: right;
+            margin-right: -11px;
+            color: $invalidColor;
+        }
+        input {
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1px solid $inputBorderColor;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border .1s ease;
+            &:hover {
+                border-color: darken(white, 10%);
+            }
+            &:focus {
+                outline: $invalidColor auto 0px;
+            }
+            &.invalid {
+                border-color: $invalidColor;
+            }
+            &[type=checkbox] {
+            display: none;
+                &:checked ~ .check-wrap .ok:after{
+                    display: block;
+                }
+            }
+        }
+        .input-error {
+            color: $invalidColor;
+        }
+        .checkbox-label{
+            display: inline-block;
+            vertical-align: middle;
+            opacity: 1;
+            cursor: pointer;
+            .check-wrap {
+                position: relative;
+                display: inline-block;
+                border: 1px solid $inputBorderColor;
+                width: 22px;
+                height: 22px;
+                background: #fff;
+                margin-right: 10px;
+                border-radius: 4px;
+                .ok:after {
+                    content: "✔";
+                    display: none;
+                    position: absolute;
+                    font-size: 18px;
+                    margin: -2px 0 0 2px;
+                    color: $darkColor;
+                    opacity: 0.5;
+                    transform: rotate(-7deg);
+                }
+            }
+        }
+    }
+    .form-item.invalid .selected {
+        border-color: $invalidColor;
+    }
+}
